@@ -1,11 +1,15 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const port = 8080;
+let port = 8080;
 
 let file_path = "/files/test.txt";
 if (process.argv.length > 2) {
   file_path = process.argv[2];
+}
+
+if (process.argv.length > 3) {
+  port = parseInt(process.argv[3]);
 }
 
 app.get("/", (req: any, res: any) =>
